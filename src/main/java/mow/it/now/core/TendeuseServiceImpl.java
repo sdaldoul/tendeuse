@@ -106,48 +106,50 @@ public class TendeuseServiceImpl implements TendeuseService {
         
     }
     
-    public void avancePoint(TendeusePoint point, List<OrientationPivot> orientationPivots) {
+    public void avancePoint(TendeusePoint locPoint, List<OrientationPivot> orientationPivots) {
         
-        TendeusePoint locPoint = point;
+        // TODO add specific exception and control input
         
-        orientationPivots.stream().forEach(unOrientationPivot -> {
-            
-            System.out
-                .println(locPoint + " next OrientationPivot " + unOrientationPivot.toString());
-            
-            if (unOrientationPivot.equals(OrientationPivot.A)) {
+        if (locPoint != null && locPoint.getOrientation() != null && orientationPivots != null) {
+            orientationPivots.stream().forEach(unOrientationPivot -> {
                 
-                switch (locPoint.getOrientation()) {
-                    case N:
-                        if (isNordAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.avanceY();
-                        }
-                        break;
-                    case E:
-                        if (isEstAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.avanceX();
-                        }
-                        break;
-                    case S:
-                        if (isSudAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.returneY();
-                        }
-                        break;
-                    case W:
-                        if (isOuestAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.returneX();
-                        }
-                        break;
-                    default:
-                        break;
+                System.out
+                    .println(locPoint + " next OrientationPivot " + unOrientationPivot.toString());
+                
+                if (unOrientationPivot.equals(OrientationPivot.A)) {
+                    
+                    switch (locPoint.getOrientation()) {
+                        case N:
+                            if (isNordAvanceOk(locPoint.getX(), locPoint.getY())) {
+                                locPoint.avanceY();
+                            }
+                            break;
+                        case E:
+                            if (isEstAvanceOk(locPoint.getX(), locPoint.getY())) {
+                                locPoint.avanceX();
+                            }
+                            break;
+                        case S:
+                            if (isSudAvanceOk(locPoint.getX(), locPoint.getY())) {
+                                locPoint.returneY();
+                            }
+                            break;
+                        case W:
+                            if (isOuestAvanceOk(locPoint.getX(), locPoint.getY())) {
+                                locPoint.returneX();
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                } else {
+                    locPoint.setOrientation(
+                        avanceAvecOrientation(locPoint.getOrientation(), unOrientationPivot));
+                    
                 }
-                
-            } else {
-                locPoint.setOrientation(
-                    avanceAvecOrientation(locPoint.getOrientation(), unOrientationPivot));
-                
-            }
-        });
+            });
+        }
         
     }
 }

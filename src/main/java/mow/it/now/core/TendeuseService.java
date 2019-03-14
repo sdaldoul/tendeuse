@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface TendeuseService {
     
-    public void AvancePoint(TendeusePoint point, List<OrientationPivot> orientationPivots);
+    public void avancePoint(TendeusePoint point, List<OrientationPivot> orientationPivots);
     
 }

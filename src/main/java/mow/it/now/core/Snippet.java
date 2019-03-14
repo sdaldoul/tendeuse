@@ -21,7 +21,7 @@ public class Snippet {
         TendeuseService tendeuseService = new TendeuseServiceImpl(5, 5);
         
         List<OrientationPivot> orientationPivots = Arrays.asList(G, A, G, A, G, A, G, A, A);
-        tendeuseService.AvancePoint(tendeusePoint1, orientationPivots);
+        tendeuseService.avancePoint(tendeusePoint1, orientationPivots);
         
         System.out.println(tendeusePoint1);
         
@@ -37,7 +37,7 @@ public class Snippet {
         TendeuseService tendeuseService2 = new TendeuseServiceImpl(5, 5);
         
         List<OrientationPivot> orientationPivots2 = Arrays.asList(A, A, D, A, A, D, A, D, D, A);
-        tendeuseService2.AvancePoint(tendeusePoint2, orientationPivots2);
+        tendeuseService2.avancePoint(tendeusePoint2, orientationPivots2);
         
         System.out.println(tendeusePoint2);
         

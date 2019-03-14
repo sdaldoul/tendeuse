@@ -32,7 +32,7 @@ public class TendeuseServiceTest {
         TendeuseService tendeuseService = new TendeuseServiceImpl(5, 5);
         
         List<OrientationPivot> orientationPivots = Arrays.asList(G, A, G, A, G, A, G, A, A);
-        tendeuseService.AvancePoint(tendeusePointActual, orientationPivots);
+        tendeuseService.avancePoint(tendeusePointActual, orientationPivots);
         Assert.assertEquals(tendeusePointExpected, tendeusePointActual);
         System.out.println(tendeusePointActual);
     }
@@ -53,7 +53,7 @@ public class TendeuseServiceTest {
         TendeuseService tendeuseService2 = new TendeuseServiceImpl(5, 5);
         
         List<OrientationPivot> orientationPivots2 = Arrays.asList(A, A, D, A, A, D, A, D, D, A);
-        tendeuseService2.AvancePoint(tendeusePointActual, orientationPivots2);
+        tendeuseService2.avancePoint(tendeusePointActual, orientationPivots2);
         Assert.assertEquals(tendeusePointExpected, tendeusePointActual);
         
         System.out.println(tendeusePointActual);

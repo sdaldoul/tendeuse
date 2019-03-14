@@ -41,19 +41,19 @@ public class TendeusePoint {
         this.orientation = orientation;
     }
     
-    public void AvanceX() {
+    public void avanceX() {
         this.x++;
     }
     
-    public void AvanceY() {
+    public void avanceY() {
         this.y++;
     }
     
-    public void ReturneX() {
+    public void returneX() {
         this.x--;
     }
     
-    public void ReturneY() {
+    public void returneY() {
         this.y--;
     }
     

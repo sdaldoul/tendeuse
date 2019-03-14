@@ -33,11 +33,7 @@ public class TendeuseServiceImpl implements TendeuseService {
         
         checkLimit(x, y);
         
-        if (y > 0) {
-            return true;
-        }
-        
-        return false;
+        return (y > 0);
         
     }
     
@@ -45,11 +41,7 @@ public class TendeuseServiceImpl implements TendeuseService {
         
         checkLimit(x, y);
         
-        if (x < maxX) {
-            return true;
-        }
-        
-        return false;
+        return (x < maxX);
         
     }
     
@@ -57,11 +49,7 @@ public class TendeuseServiceImpl implements TendeuseService {
         
         checkLimit(x, y);
         
-        if (y < maxY) {
-            return true;
-        }
-        
-        return false;
+        return (y < maxY);
         
     }
     
@@ -69,19 +57,12 @@ public class TendeuseServiceImpl implements TendeuseService {
         
         checkLimit(x, y);
         
-        if (x > 0) {
-            return true;
-        }
-        
-        return false;
+        return (x > 0);
         
     }
     
     private boolean checkLimit(int x, int y) {
-        if (x > maxX || y > maxY || x < 0 || y < 0) {
-            return false;
-        }
-        return true;
+        return (x > maxX || y > maxY || x < 0 || y < 0);
     }
     
     private OrientationDirection avanceAvecOrientation(OrientationDirection orientationActual,
@@ -125,7 +106,7 @@ public class TendeuseServiceImpl implements TendeuseService {
         
     }
     
-    public void AvancePoint(TendeusePoint point, List<OrientationPivot> orientationPivots) {
+    public void avancePoint(TendeusePoint point, List<OrientationPivot> orientationPivots) {
         
         TendeusePoint locPoint = point;
         
@@ -139,22 +120,22 @@ public class TendeuseServiceImpl implements TendeuseService {
                 switch (locPoint.getOrientation()) {
                     case N:
                         if (isNordAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.AvanceY();
+                            locPoint.avanceY();
                         }
                         break;
                     case E:
                         if (isEstAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.AvanceX();
+                            locPoint.avanceX();
                         }
                         break;
                     case S:
                         if (isSudAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.ReturneY();
+                            locPoint.returneY();
                         }
                         break;
                     case W:
                         if (isOuestAvanceOk(locPoint.getX(), locPoint.getY())) {
-                            locPoint.ReturneX();
+                            locPoint.returneX();
                         }
                         break;
                     default:
